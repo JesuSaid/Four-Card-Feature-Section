@@ -8,6 +8,7 @@
     --color-text: hsl(212, 6%, 44%);
     --color-title: hsl(234, 12%, 34%);
     --font-family-base: Poppins, sans-serif;
+    --color-shadow: hsl(0, 8%, 91%);
 }
 
 *, *::before, *::after {
@@ -20,5 +21,85 @@ body {
     background-color: var(--color-background);
     color: var(--color-text);
     font-weight: 400;
-    font-size: 0.9375rem;
+    font-size: 0.9375rem; /* 15px */
+}
+
+.features-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 3rem;
+    padding-inline: 2rem;
+    text-align: center;
+}
+
+.features-intro h1 {
+    margin: 0;
+    font-size: 1.5rem; /* 24px */
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+}
+
+.features-intro span {
+    font-weight: 600;
+}
+
+.features-intro p {
+    margin: 1rem 0;
+    inline-size: 100%;
+    max-inline-size: 30rem;
+}
+
+.features {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 1rem;
+    list-style: none;
+    gap: 2rem;
+}
+
+.features__item {
+    box-shadow: 0 0 0.5rem 0.5rem var(--color-shadow);
+    border-radius: 1rem;
+    padding: 2rem;
+    inline-size: 100%;
+    max-inline-size: 20rem;
+    background-color: var(--color-background-card);
+    border-block-start: 0.25rem solid var(--card-accent);
+}
+
+.features__item > h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-title);
+}
+
+.features__item > p {
+    margin-block: 0.5rem 3rem;
+    font-size: 0.8125rem;
+}
+
+.features__item > img {
+    display: block;
+    margin-inline-start: auto;
+}
+
+.features__item--supervisor {
+    --card-accent: var(--color-card-supervisor);
+}
+
+.features__item--team-builder {
+    --card-accent: var(--color-card-team);
+}
+
+.features__item--karma {
+    --card-accent: var(--color-card-karma);
+}
+
+.features__item--calculator {
+    --card-accent: var(--color-card-calculator);
 }
