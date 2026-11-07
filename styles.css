@@ -1,0 +1,24 @@
+:root {
+    --color-background: hsl(0, 0%, 98%);
+    --color-background-card: hsl(0, 0%, 100%);
+    --color-card-team: hsl(0, 78%, 62%);
+    --color-card-supervisor: hsl(180, 62%, 55%);
+    --color-card-karma: hsl(34, 97%, 64%);
+    --color-card-calculator: hsl(212, 86%, 64%);
+    --color-text: hsl(212, 6%, 44%);
+    --color-title: hsl(234, 12%, 34%);
+    --font-family-base: Poppins, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-weight: 400;
+    font-size: 0.9375rem;
+}
