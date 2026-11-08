@@ -63,7 +63,7 @@ body {
 
 .features__item {
     box-shadow: 0 0 0.5rem 0.5rem var(--color-shadow);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 2rem;
     inline-size: 100%;
     max-inline-size: 20rem;
@@ -102,4 +102,38 @@ body {
 
 .features__item--calculator {
     --card-accent: var(--color-card-calculator);
+}
+
+@media screen and (min-width: 60rem) {
+    .features-intro > h1 {
+        font-size: 2.25rem;
+    }
+
+    .features {
+        display: grid;
+        max-inline-size: 66rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin-inline: auto;
+    }
+
+    .features__item--supervisor {
+        grid-column: 1;
+        grid-row: 1/3;
+    }
+
+    .features__item--team-builder {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .features__item--karma {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .features__item--calculator {
+        grid-column: 3;
+        grid-row: 1/3;
+    }
 }
