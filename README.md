@@ -1,104 +1,109 @@
-# Frontend Mentor - Four card feature section
+# Four Card Feature Section
 
-![Design preview for the Four card feature section coding challenge](./design/desktop-preview.jpg)
+[Versión en español](./README-es.md)
 
-## Welcome! 👋
+This repository contains my solution to the [Four Card Feature Section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/four-card-feature-section-weK1eFYK). The goal was to reproduce the provided responsive design while building a semantic, accessible, and maintainable HTML and CSS foundation.
 
-Thanks for checking out this front-end coding challenge.
+## Overview
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+The page presents four product features in a single-column mobile layout and reorganizes them into a distinctive three-column, two-row composition on larger screens. It was built without JavaScript because the challenge does not require interactive behavior.
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+### Screenshots
 
-## The challenge
+#### Desktop
 
-Your challenge is to build out this feature section and get it looking as close to the design as possible.
+![Desktop view of the Four Card Feature Section solution](./assets/images/Desktop.png)
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+#### Mobile
 
-Your users should:
+![Mobile view of the Four Card Feature Section solution](./assets/images/Mobile.png)
 
-- View the optimal layout for the site depending on their device's screen size
+### Links
 
-### Want some support on the challenge? 
+- [Live site](https://jesusaid.github.io/Four-Card-Feature-Section/)
+- [GitHub repository](https://github.com/JesuSaid/Four-Card-Feature-Section)
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+## Built with
 
-## Where to find everything
+- Semantic HTML5
+- CSS custom properties
+- Locally hosted Poppins font files
+- Flexbox
+- CSS Grid
+- BEM-inspired class naming
+- Logical CSS properties
+- Mobile-first responsive workflow
+- Git and Conventional Commits
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+## Development process
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+I began by reviewing the challenge README, style guide, reference images, and available assets. Before adding visual styles, I created the semantic document structure with one primary heading, secondary headings for each feature, and an unordered list for the card collection. The feature icons are decorative, so they use empty alternative text.
 
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+The visual system was then established with reusable color and typography tokens in `:root`. Poppins is loaded locally in the required weights—200, 400, and 600—with `font-display: swap` and a generic fallback. Images and fonts were organized under `assets`.
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+The base layout was developed mobile-first. Flexbox stacks and centers the feature cards, while `inline-size` and `max-inline-size` allow them to fill small viewports without becoming excessively wide. At `60rem`, the list changes to a three-column, two-row Grid that matches the desktop composition. The Grid itself stops growing at `66rem`.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+Each card combines a shared `features__item` class with a BEM modifier. The base class defines the shared border, while each modifier supplies a local `--card-accent` value. This keeps the color attached to the card identity instead of its position in the list.
 
-## Using AI coding assistants
+Development was divided into focused Git milestones for semantic structure, global design foundations, mobile styling, desktop layout, final UI corrections, and documentation.
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+## What I learned
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+### Semantic structure before presentation
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+The two visually different lines at the top belong to one primary heading rather than two unrelated heading levels. The cards form an unordered collection, and their names are second-level headings. Separating meaning from appearance made the document easier to style without weakening its hierarchy.
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+### Fluid sizing instead of rigid widths
 
-## Building your project
+Using a fixed width or large horizontal margins can compress content or create overflow on narrow screens. Combining `inline-size: 100%` with a reasonable `max-inline-size` lets the cards and introductory text adapt naturally between 320px and larger viewports.
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+### Choosing a breakpoint from the content
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+The desktop breakpoint was selected by testing where three cards, two gaps, and the container padding could coexist comfortably. A `60rem` breakpoint enables the desktop composition on common laptop widths while preserving the single-column layout at 768px.
 
-## Deploying your project
+### Modeling the layout with the smallest useful Grid
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+The desktop design can be represented with three columns and two rows. The side cards span both rows and remain vertically centered, while Team Builder and Karma occupy the upper and lower cells of the middle column. A larger six-column grid would have represented the same relationships with unnecessary tracks.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+### Stable component variants
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+Selectors such as `:first-child` and `:nth-child()` would couple each accent color to the current HTML order. BEM modifiers keep each color attached to its feature card, so reordering the list does not change the visual identity of the cards.
 
-## Create a custom `README.md`
+### Logical properties and component ownership
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+Properties such as `padding-inline`, `padding-block`, `margin-block`, `inline-size`, and `border-block-start` describe spacing and sizing independently of a specific writing direction. Outer page spacing is owned by the container instead of being attached to the last card.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+## Responsive and accessibility checks
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+The final implementation was reviewed at 320px, 375px, 768px, around the `60rem` breakpoint, 1024px, and 1440px. It was also checked at increased browser zoom to confirm that content remains reachable and that no horizontal overflow appears.
 
-## Submitting your solution
+Accessibility considerations include:
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+- One `h1` followed by correctly ordered `h2` headings.
+- Semantic list markup for the feature collection.
+- Empty `alt` attributes for decorative icons.
+- Relative units and fluid component widths.
+- Sufficient text contrast based on the supplied palette.
+- No essential animation or interaction requiring JavaScript.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+## Continued development
 
-## Sharing your solution
+In future projects I want to continue practicing:
 
-There are multiple places you can share your solution:
+- Selecting breakpoints from content constraints instead of device labels.
+- Building more complex Grid layouts without unnecessary tracks or wrappers.
+- Creating consistent spacing systems with a small set of reusable tokens.
+- Validating HTML, CSS, zoom behavior, and keyboard accessibility as part of each milestone.
+- Improving visual comparison techniques for shadows, spacing, and typography.
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+## AI collaboration
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+I used ChatGPT as a learning and review partner throughout the challenge. It helped me evaluate semantic HTML decisions, reason about fluid sizing, understand Grid line placement, review BEM modifiers, plan coherent Git milestones, and build a final quality-assurance checklist. I implemented and tested the project changes myself, using the feedback to understand why each approach worked rather than copying a complete solution.
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+## Author
 
-## Got feedback for us?
+- GitHub: [@JesuSaid](https://github.com/JesuSaid)
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+## Acknowledgments
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+Challenge and design provided by [Frontend Mentor](https://www.frontendmentor.io/).
