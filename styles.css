@@ -51,6 +51,10 @@ body {
     max-inline-size: 30rem;
 }
 
+.main-content {
+    padding-block-end: 3rem;
+}
+
 .features {
     margin: 0;
     display: flex;
